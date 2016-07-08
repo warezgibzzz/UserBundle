@@ -1,0 +1,14 @@
+parameters:
+    creonit.security.user_provider.class: Creonit\UserBundle\Security\UserProvider
+    creonit.security.oauth_user_provider.class: Creonit\UserBundle\Security\OAuthUserProvider
+
+
+services:
+    creonit.security.user_provider:
+        class: %creonit.security.user_provider.class%
+        arguments: ["@=service(parameter('creonit_user.authorization'))"]
+
+    creonit.security.oauth_user_provider:
+        class: %creonit.security.oauth_user_provider.class%
+        arguments: ["@=service(parameter('creonit_user.authorization'))"]
+

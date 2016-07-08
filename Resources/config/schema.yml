@@ -1,0 +1,19 @@
+config:
+    required: true
+
+database:
+    +:
+        name: default
+        namespace: Creonit\UserBundle\Model
+        defaultIdMethod: native
+
+    +behavior:
+        - \Creonit\UserBundle\Behavior\UserBehavior
+
+    user_sign:
+        id: int pk > user.id
+        provider: varchar(20) pk
+        username: varchar(128) pk
+        password: varchar(64)
+        secret: varchar(64)
+        enabled: boolean = 0
