@@ -1,0 +1,16 @@
+{
+  "name": "creonit/user-bundle",
+  "keywords": [
+    "creonit",
+    "symfony",
+    "bundle",
+    "user",
+    "authorization"
+  ],
+  "license": "GNU GPLv3",
+  "autoload": {
+    "psr-4": {
+      "Creonit\\UserBundle\\": ""
+    }
+  }
+}
