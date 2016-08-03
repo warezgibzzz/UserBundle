@@ -18,3 +18,27 @@ database:
         password: varchar(64)
         secret: varchar(64)
         enabled: boolean = 0
+
+    user_group:
+        title: text
+        name: varchar(50) key(10)
+        +behavior: [tree, {sortable: portable}]
+
+    user_group_rel:
+        user_id: int > user.id
+        group_id: int > user_group.id
+
+    user_role_group:
+        title: text
+        +behavior: [sortable]
+
+    user_role:
+        group_id: int > user_role_group.id
+        title: text
+        name: varchar(50) key(10)
+        +behavior: [{sortable: group_id}]
+
+    user_group_role:
+        group_id: int > user_group.id
+        role_id: int > user_role.id
+        rule: tinyint

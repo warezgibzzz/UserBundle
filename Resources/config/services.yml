@@ -4,6 +4,10 @@ parameters:
 
 
 services:
+    creonit.user.admin.module:
+        class: Creonit\UserBundle\Admin\UserModule
+        tags: [{name: creonit_admin.module}]
+
     creonit.security.user_provider:
         class: %creonit.security.user_provider.class%
         arguments: ["@=service(parameter('creonit_user.authorization'))"]
