@@ -11,3 +11,29 @@ public function getGroupTitles($implode = false){
     });
 
 }
+
+public function getRoles(){
+    return $this->cache(__METHOD__, function(){
+        $roles = ['ROLE_USER'];
+        $roleIds = [];
+
+        foreach($this->getUserGroupRels() as $groupRel){
+            foreach(\Creonit\UserBundle\Model\UserRoleQuery::create()->find() as $role){
+                if(
+                    !in_array($role->getId(), $roleIds) and
+                    $rule = $groupRel->getUserGroup()->getRoleRule($role, true) and
+                    $rule === \Creonit\UserBundle\Model\UserGroupRole::RULE_ALLOW
+                ){
+                    $roleIds[] = $role->getId();
+                    $roles[] = 'ROLE_' . strtoupper($role->getName());
+                }
+            }
+        }
+        return $roles;
+    });
+}
+
+public function isEqualTo(\Symfony\Component\Security\Core\User\UserInterface $user)
+{
+    return true;
+}
