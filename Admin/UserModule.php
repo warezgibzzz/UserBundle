@@ -20,9 +20,11 @@ class UserModule extends Module
     {
         $this->addComponent(new UserTable);
         $this->addComponent(new UserEditor);
+        $this->addComponent(new UserGroupRelTable);
         
         $this->addComponent(new GroupTable);
         $this->addComponent(new GroupEditor);
+        $this->addComponent(new GroupRoleTable);
         $this->addComponent(new ChooseGroupTable);
 
         $this->addComponent(new RoleTable);

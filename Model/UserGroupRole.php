@@ -17,4 +17,8 @@ use Creonit\UserBundle\Model\Base\UserGroupRole as BaseUserGroupRole;
 class UserGroupRole extends BaseUserGroupRole
 {
 
+    const RULE_INHERIT = 0;
+    const RULE_ALLOW = 1;
+    const RULE_DENY = 2;
+
 }

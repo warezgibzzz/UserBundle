@@ -25,7 +25,7 @@ class UserTable extends TableComponent
      * </form>
      *
      * {{ button('Добавить пользователя', {size: 'sm', type: 'success', icon: 'user'}) | open('UserEditor') }}
-     * {{ button('Группы', {size: 'sm', icon: 'folder-o'}) | open('GroupTable') }}
+     * {{ button('Группы', {size: 'sm', icon: 'users'}) | open('GroupTable') }}
      * {{ button('Разрешения', {size: 'sm', icon: 'key'}) | open('RoleTable') }}
      *
      * \User
@@ -33,9 +33,10 @@ class UserTable extends TableComponent
      * @pagination 20
      *
      * @field group
+     * @field title {load: 'entity.getTitleFull()'}
      *
      * @col {{ title | icon('user') | open('UserEditor', {key: _key}) }}
-     * @col {{ (group ? group : 'Группа не назначена') | open('UserGroupRelEditor', {key: _key}) }}
+     * @col {{ (group ? group : '<b>Группа не назначена</b>' | raw) | open('UserGroupRelTable', {user: _key}) }}
      * @col {{ email }}
      * @col {{ phone }}
      * @col {{ _delete() }}
@@ -63,7 +64,7 @@ class UserTable extends TableComponent
             $entity->getUserGroupRelsJoinUserGroup()->getData()
         );
 
-        $response->data->set('group', $userGroupRels);
+        $data->set('group', implode(', ', $userGroupRels));
     }
 
     /**

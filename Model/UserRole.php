@@ -17,4 +17,9 @@ use Creonit\UserBundle\Model\Base\UserRole as BaseUserRole;
 class UserRole extends BaseUserRole
 {
 
+    public static function get($roleName)
+    {
+        return UserRoleQuery::create()->findOneByName($roleName);
+    }
+
 }

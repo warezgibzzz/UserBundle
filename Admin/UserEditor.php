@@ -10,7 +10,9 @@ class UserEditor extends EditorComponent
      * @title Пользователь
      * @entity User
      * @template
-     * Такой вот темплейт
+     * {{ lastname | text | group('Фамилия') }}
+     * {{ firstname | text | group('Имя') }}
+     * {{ middlename | text | group('Отчество') }}
      *
      */
     public function schema(){
