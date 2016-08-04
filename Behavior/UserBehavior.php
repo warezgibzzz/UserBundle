@@ -42,6 +42,8 @@ class UserBehavior extends Behavior
             $table->addColumn(['name' => 'salt', 'type' => 'varchar', 'size' => 64, 'required' => true]);
         }
 
+        $table->addBehavior(new UserExtendsBehavior);
+
         foreach ($this->database->getBehaviors() as $behavior) {
             $behavior->modifyDatabase();
         }

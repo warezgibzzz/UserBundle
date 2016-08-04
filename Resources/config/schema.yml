@@ -9,7 +9,6 @@ database:
 
     +behavior:
         - \Creonit\UserBundle\Behavior\UserBehavior
-        - \Creonit\UserBundle\Behavior\UserExtendsBehavior
 
     user_sign:
         id: int pk > user.id

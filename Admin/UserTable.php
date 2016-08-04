@@ -36,7 +36,7 @@ class UserTable extends TableComponent
      * @field title {load: 'entity.getTitleFull()'}
      *
      * @col {{ title | icon('user') | open('UserEditor', {key: _key}) }}
-     * @col {{ (group ? group : '<b>Группа не назначена</b>' | raw) | open('UserGroupRelTable', {user: _key}) }}
+     * @col {{ (group ? group : '<b>Не назначена</b>' | raw) | open('UserGroupRelTable', {user: _key}) }}
      * @col {{ email }}
      * @col {{ phone }}
      * @col {{ _delete() }}
@@ -57,14 +57,7 @@ class UserTable extends TableComponent
      */
     protected function decorate(ComponentRequest $request, ComponentResponse $response, ParameterBag $data, $entity, Scope $scope, $relation, $relationValue, $level)
     {
-        $userGroupRels = array_map(
-            function(UserGroupRel $rel){
-                return $rel->getUserGroup()->getTitle();
-            },
-            $entity->getUserGroupRelsJoinUserGroup()->getData()
-        );
-
-        $data->set('group', implode(', ', $userGroupRels));
+         $data->set('group', $entity->getGroupTitles(', '));
     }
 
     /**

@@ -17,5 +17,10 @@ class UserExtendsBehavior extends Behavior
             }
         }
     }
+
+    public function objectMethods($builder)
+    {
+        return $this->renderTemplate('objectMethods', ['table' => $this->getTable()]);
+    }
     
 }
