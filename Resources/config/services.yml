@@ -15,4 +15,3 @@ services:
     creonit.security.oauth_user_provider:
         class: %creonit.security.oauth_user_provider.class%
         arguments: ["@=service(parameter('creonit_user.authorization'))"]
-

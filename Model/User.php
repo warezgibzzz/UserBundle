@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 abstract class User implements UserInterface, EquatableInterface
 {
-
+    
     public function getSalt()
     {
         return '';

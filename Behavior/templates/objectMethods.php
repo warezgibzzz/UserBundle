@@ -32,8 +32,3 @@ public function getRoles(){
         return $roles;
     });
 }
-
-public function isEqualTo(\Symfony\Component\Security\Core\User\UserInterface $user)
-{
-    return true;
-}
