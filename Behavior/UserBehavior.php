@@ -9,7 +9,6 @@ class UserBehavior extends Behavior
 {
 
     protected $userTable;
-
     protected $userTableName = 'user';
 
     public function modifyDatabase()
