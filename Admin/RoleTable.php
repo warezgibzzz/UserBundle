@@ -11,7 +11,7 @@ class RoleTable extends TableComponent
      * @title Список разрешений
      * @cols Название, Идентификатор, .
      * @header
-     * {{ button('Добавить секцию', {size: 'sm', type: 'success', icon: 'folder-o'}) | open('RoleEditor') }}
+     * {{ button('Добавить секцию', {size: 'sm', type: 'success', icon: 'folder-o'}) | open('RoleGroupEditor') }}
      * {{ button('Добавить разрешение', {size: 'sm', type: 'success', icon: 'key'}) | open('RoleEditor') }}
      *
      * \RoleGroup
