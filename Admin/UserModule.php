@@ -13,7 +13,6 @@ class UserModule extends Module
             ->setTitle('Пользователи')
             ->setIcon('user')
             ->setTemplate('UserTable')
-            ->setPermission('ROLE_ADMIN_USER')
         ;
     }
 
