@@ -12,5 +12,8 @@
     "psr-4": {
       "Creonit\\UserBundle\\": ""
     }
+  },
+  "require": {
+    "creonit/propel-schema-converter-bundle": "^0.1.0"
   }
 }
