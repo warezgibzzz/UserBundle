@@ -15,6 +15,6 @@
   },
   "require": {
     "hwi/oauth-bundle": "^0.5.3",
-    "creonit/propel-schema-converter-bundle": "^0.1.0"
+    "creonit/propel-schema-converter-bundle": "^0.1.0|^0.2.0"
   }
 }
